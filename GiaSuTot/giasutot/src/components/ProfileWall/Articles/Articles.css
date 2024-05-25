@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.articles {
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-family: "Roboto", sans-serif;
+
+    position: relative;
+    /* margin-top: 20px; */
+}
+
+.top-articles {
+    position: relative;
+    right: 6.5vw;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    margin-top: 50px;
+}
+
+.titlee {
+    width: auto;
+    /* max-width: 400px; */
+    height: 30px;
+    border-radius: 10px;
+    /* border: 1px solid #cccccc; */
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: -15px;
+}
+
+.article {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", sans-serif;
+    flex-wrap: wrap;
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    margin-top: 80px;
+}
+
+.first-of-article {
+    width: 100%;
+    height: 80px;
+    /* border : 1px solid #cccccc; */
+    font-family: "Roboto", sans-serif;
+    position: relative;
+}
+
+.first-of-article-right {
+    position: absolute;
+    top: 13px;
+    font-family: "Roboto", sans-serif;
+    left: 960px;
+    z-index: 9999;
+}
+
+.list-option {
+    border: 1px solid #cccccc;
+    width: 140px;
+    font-family: "Roboto", sans-serif;
+    border-radius: 10px;
+}
+
+.option {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-family: "Roboto", sans-serif;
+}
+
+.button-option {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    width: 100px !important;
+    left: 88px;
+    top: 5px;
+}
+
+.option-article {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 200px;
+    font-family: "Roboto", sans-serif;
+}
+
+.small-avatar {
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
+    border-radius: 999px;
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    font-family: "Roboto", sans-serif;
+}
+
+.name-article {
+    position: absolute;
+    top: 9px;
+    left: 60px;
+    font-family: "Roboto", sans-serif;
+}
+
+.date-article {
+    position: absolute;
+    top: 34px;
+    left: 60px;
+    font-family: "Roboto", sans-serif;
+}
+
+.private-or-public-icon-article {
+    position: absolute;
+    top: 37px;
+    left: 145px;
+    font-family: "Roboto", sans-serif;
+}
+
+.title-article {
+    width: 100%;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 19px;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+}
+
+.third-of-article {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    /* align-content: flex-start; */
+    align-self: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.like-article {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+}
+
+.dislike-article {
+    position: relative;
+    font-family: "Roboto", sans-serif;
+}
+
+.fourth-of-article {
+    border: 1px solid #cccccc;
+    font-family: "Roboto", sans-serif;
+    width: 240px;
+    height: 45px;
+    border-radius: 15px;
+    background-color: #ebebe9;
+    font-family: "Roboto", sans-serif;
+}
+
+.fourth-of-article span {
+    font-weight: bold;
+    position: relative;
+    left: 39px;
+    top: 10px;
+    font-family: "Roboto", sans-serif;
+}
+
+.tym {
+    position: relative;
+    top: 10px;
+    left: 23px;
+    font-family: "Roboto", sans-serif;
+}
+
+.private-or-public-modal {
+    position: relative;
+    border-radius: 5px;
+    top: 30px;
+    left: 290px;
+    font-family: "Roboto", sans-serif;
+}
+
+.public-and-private {
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    font-family: "Roboto", sans-serif;
+}
+
+.public-and-private:hover {
+    background-color: #28a745;
+    font-family: "Roboto", sans-serif;
+    color: white;
+}
+
+/* thằng súc vật absolute cài nó là nó xóa vị trí ban đầu , gây hụt kích thước conmeno */
+.X-mark {
+    position: relative;
+    left: 760px;
+    font-family: "Roboto", sans-serif;
+    color: #d30000;
+}
+
+.link-media {
+    margin-right: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: "Roboto", sans-serif;
+}
+
+.conf {
+    background-color: #b68773;
+    height: 70px;
+    width: 200px;
+    position: relative;
+    left: 50px;
+    top: -160px;
+    border-radius: 10px;
+    font-family: "Roboto", sans-serif;
+}
+
+.ok {
+    position: relative;
+    top: 7px;
+    font-family: "Roboto", sans-serif;
+    width: 55px !important;
+}
+
+.jus {
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    color: white;
+}
+
+.cancel {
+    position: relative;
+    left: 24px;
+    top: 7px;
+    font-family: "Roboto", sans-serif;
+    width: 77px !important;
+
+}
+
+.khong-co-bai-viet-nao {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Roboto", sans-serif;
+}

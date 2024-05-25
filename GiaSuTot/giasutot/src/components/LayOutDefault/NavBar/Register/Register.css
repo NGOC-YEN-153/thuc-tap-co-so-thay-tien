@@ -1,0 +1,154 @@
+.add{
+    top:1px
+}
+.form-input-register{
+    width: 580px;
+    height: 600px;
+    border: 1px #cccccc solid;
+    border-radius: 5px;
+    position: fixed;
+    left: 480px;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.username-label{
+    font-size: 18px;
+    position: relative;
+    font-weight: bold;
+}
+.username-input{
+    width: 350px;
+    height: 40px;
+    position: relative;
+    left: 30px;
+    border-radius: 6px;
+    border: 1px #cccccc solid;
+}
+.password-label{
+    font-size: 18px;
+    position: relative;
+    font-weight: bold;
+}
+.password-input{
+    width: 350px;
+    height: 40px;
+    position: relative;
+    left: 30px;
+    border-radius: 6px;
+    border: 1px #cccccc solid;
+}
+.password-again-label{
+    font-size: 18px;
+    position: relative;
+    font-weight: bold;
+}
+.password-again-input{
+    width: 350px;
+    height: 40px;
+    position: relative;
+    left: 30px;
+    border-radius: 6px;
+    border: 1px #cccccc solid;
+}
+.gender-register-label{
+    font-size: 18px;
+    position: relative;
+    /* left: -300px ;
+    top: 210px; */
+    font-weight: bold;
+}
+.nam-label{
+    position: relative;
+    /* top: 158px;
+    left: 170px; */
+    left: 24px;
+}
+.nam-radio{
+    position: relative;
+    /* left: 106px;  */
+    top: 10px;
+    left: 20px;
+}
+
+.nu-label{
+    position: relative;
+    /* top: 158px;
+    left: 220px; */
+    left: 45px;
+}
+.nu-radio{
+    position: relative;
+    /* top: 170px;
+    left: 166px; */
+    left: 40px;
+    top: 10px;
+}
+.ngaysinh-label{
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    /* top: 220px;
+    left: -50px; */
+}
+.ngaysinh-input{
+    position: relative;
+    /* top: 219px;
+    left: -30px; */
+    left: 40px;
+    border-radius: 5px;
+}
+.register-button{
+    width: 350px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: #04aa6d;
+    border-radius: 30px;
+    position: relative;
+    /* left: 9%;
+    top: 43%; */
+    left: 100px;
+    top: 24px;
+    text-align: center;
+    padding-top: 2%;
+}
+.X-register{
+    color: red;
+    transform: scale(1.5);
+    position: absolute;
+    bottom: 600px;
+    left: 583px;
+}
+.phone-label{
+    font-size: 18px;
+    position: relative;
+    font-weight: bold;
+}
+.phone-input{
+    width: 350px;
+    height: 40px;
+    position: relative;
+    left: 30px;
+    border-radius: 6px;
+    border: 1px #cccccc solid;
+}
+.email-label{
+    font-size: 18px;
+    position: relative;
+    font-weight: bold;
+}
+.email-input{
+    width: 350px;
+    height: 40px;
+    position: relative;
+    left: 30px;
+    border-radius: 6px;
+    border: 1px #cccccc solid;
+}
+.element-register{
+    margin-bottom: 20px;
+    position: relative;
+    left: 20px;
+}

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.beforecaccauhoithuonggap {
+    border: dashed 3px;
+    margin-top: 30px;
+    border-radius: 15px;
+    width: 1100px;
+    position: relative;
+    left: 220px;
+    top: 50px;
+    color: green;
+    font-family: "Roboto", sans-serif;
+}
+
+.titlebeforecaccauhoithuonggap {
+    height: 70px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 15px;
+    font-family: "Roboto", sans-serif;
+}
+
+.contentbeforecaccauhoithuonggap {
+    height: 100px;
+    text-align: center;
+    font-size: 22px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-top: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+/* ----------------------------------------------------------- */
+.titlecauhoi {
+    font-size: 30px;
+    font-weight: 27px;
+    text-align: center;
+    color: #d30000;
+    font-family: "Roboto", sans-serif;
+}
+
+.debai {
+    font-size: 25px;
+    font-family: "Roboto", sans-serif;
+}
+
+.cauhoi {
+    position: relative;
+    left: 400px;
+    margin-top: 20px;
+    border-top: 2px solid;
+    width: 800px;
+    font-family: "Roboto", sans-serif;
+}

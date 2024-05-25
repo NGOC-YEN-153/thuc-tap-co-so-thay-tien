@@ -1,0 +1,181 @@
+const initialDatabase = require("../config/database/initialDatabase")
+
+nên khai báo quan hệ ngay bên trong Model, không nên khai báo trong initialDatabase vì sẽ mất quan hệ, quan hệ many_to_many, ... là thuộc về js, không thuộc về mysql 
+ làm vậy sẽ linh hoạt hơn cho js , sql chỉ định cấu trúc khóa ngoại tham chiếu , ... còn việc xác định quan hệ để truy vấn là việc của js , có thể config tùy ý
+ không nên khai báo quan hệ trong model vì để có đc model khác phải import , mà rất có thể model khác cũng đang import mình , gây ra vòng lặp đệ quy import lẫn nhau
+ Tốt nhất model chỉ nên khai báo thuộc tính , mối quan hệ code tới đâu gõ tới đó
+ nếu khai báo 2 biến từ cùng 1 file Model thì biến này thêm quan hệ biến kia cũng sẽ thêm quan hệ , rất giống con trỏ
+ khác file thì không còn tính chất ấy , nghi ngờ mỗi lần require sẽ mở riêng 1 cổng để chọc db
+ define trả về 1 class(function) chứ không phải trả về 1 object , log để xem , vì type of class là function
+ mỗi require sẽ trả về 1 con trỏ , luôn là 1 con trỏ cho dù 3 4 biến gán vào thì vẫn là biến đó
+ mỗi lần user = require là đang lấy ra 1 con trỏ , con trỏ ấy có quyền chọc db nhưng chưa được trang bị quan hệ , cần trang bị thủ công quan hệ cho nó  , nếu có thể trang bị quan hệ cho nó ngay từ khi định nghĩa model thì tốt nhưng hiện tại chưa biết cách đó.
+// ( chưa chắc chắn)tại sao khi run 1 file js độc lập thì import đối tượng Model vào thì không lấy được ? trả lời : sai lầm vì define('ádfdf) nghĩa là đã thiết lập quan hệ( giả sử ManyToMany) ở phía Mysql , bất kì 1 dối tượng vào lấy ra Model ứng với Define(''') đều auto có quan hệ đó =>> sau 1 hồi suy luận đã thấy sai
+=>> đúng : 1 dự án Nodejs khi chạy sẽ quét qua file server.js , nếu initialDatabase được khởi chạy ( đồng nghĩa với tạo quan hệ) thì khi đó cả môi trường sẽ nhận diện được quan hệ , có thể import và sử dụng thoải mái , chứ không phải chỉ cần chạy initialDatabase 1 lần vào buổi sáng rồi quan hệ được lưu lại trong mysql , tối đem ra dùng tiếp , như vậy là sai , mỗi phiên khởi chạy môi trường chỉ tạo ra 1 connection chứa quan hệ
+ error validation : xác thực bên js , nếu false không có câu lệnh sql nào cả
+constraint : bên mysql
+unique chết tiệt
+User.belongsToMany(User, { as: 'Tutor', through: {model: Friend , unique: false}, foreignKey: 'tutorId' });
+User.belongsToMany(User, { as: 'Parent', through: {model :Friend , unique : false}, foreignKey: 'parentId' });
+khi tự cấu hình bảng trung gian phải cho unique = false để sequelize không tự tạo ra khóa chính ghép từ 2 khóa ngoại , nếu không khi insert 2 bản ghi có khóa ngoại giống nhau sẽ sinh ra lỗi
+khi cần biểu diễn mối quan hệ N -N có 2 cách ,1laf 1-N đối xứng ,2 là 2 cái belong to Many , nên dùng cái nào
++ 2 cái belong to khi cần truy vấn người dùng User có những môn học nào và ngược lại môn học Subject được những ai đky
++ 1 -N đối xứng khi chỉ cần quan tâm tới bảng trung gian , đứng từ bảng trung gian chọc tới bảng gốc để lấy thông tin khi đã cầm trong tay id
+- getBar phục vụ , giả sử findByPk được 1 user , dùng user.getPhoneNubers cho ra sđt tương ứng của người ấy 1 cách nhanh chóng , tương tự findAll + điều khiện id
+literal dùng để tạo subquery , hữu ích trong kết hợp với include và ordering
+query = execute và query và truy vấn hẳn db , còn literal cũng truy vấn db nhưng trả về  model để inclde
+- chỉ khai báo quan hệ khi cần thiết , ví dụ User và phone chỉ cần User.hasManyPhone là đủ , không cần chiều ngược lại
+-iclude chậm , thanh niên queery riêng 2 bảng và dùng  lodash => nhanh
+- k nên để js join trong 1 số trường hợp vì để js join nó phải tạo bản sao rồi gán vào model
+-separate: https://stackoverflow.com/questions/23014902/slow-associations-in-sequelizejs      https://stackoverflow.com/questions/23014902/slow-associations-in-sequelizejs
+-separate quá mạnh , paralel chứ k tuần tự, tốc độ nhanh , ví dụ a include B và C thì nó không tuần tự ghép A với B sau đó tới C mà nó tải đồng thời 2 bảng B và C sau đó dùng js để join chứ k để db join
+- sequelize chậm vì phải đi xóa bản sao( mệt quá k tìm hiểu nữuax)
+ - In all the above examples, you have noticed that the order option is used at the top-level : top-Level o day nghia la ngang hang include , khong phai la cau lenh long cua bat ki thang nao ca, ngoai le : khi co them separate : true thi order duoc nam trong include
+ -eagerLoading , với mỗi bản ghi A[i] nó sẽ tìm kiếm các bản ghi phù hợp bên bảng B để đính kèm vào 
+ - cách để thêm 1 thuộc tính đính kèm vào bản ghi hiện tại , k phải đính kèm model
+ 'Post.findAll({
+    attributes: {
+        include: [
+            [
+                sequelize.literal(`(
+                    SELECT COUNT(*)
+                    FROM reactions AS reaction
+                    WHERE
+                        reaction.postId = post.id
+                        AND
+                        reaction.type = "Laugh"
+                )`),
+                'laughReactionsCount'
+            ]
+        ]
+    },
+    order: [
+        [sequelize.literal('laughReactionsCount'), 'DESC']
+    ]
+});'
+
+- Truy vấn N-N nên dùng bảng trung gian xong include 2 thằng liên quan , => nên xem xét chỉ cần cái 2 quan hệ 1-N và N-1 chứ k cần 2 belongsToMany
+ - Dù đã cấu hình có thể có 2 cặp khóa ngoại trùng lặp trong 1 bản ghi nhưng ssequelize vẫn cố tình loại bỏ (deduplicate) đối với 2 lần belongToMany , giải pháp là dùng 2 lần  1-N
+ - câu hỏi ? tại sao User iclude tinhTu lại trả về thứ tự tinhTuId ngược từ 4 về 1 , thêm separate vào lại từ 1 tới 4 , phoneNumber chả cần làm gì vẫn tự động tăng
+ - tại sao dùng TInhTU chọc ra User và ClassSubject nếu không có required = true thì ClassSubject có thể = NULL ảo vcl , rõ ràng logic là constraints nhau rồi , điều này chỉ xảy ra khi có mệnh đề where tham gia , nếu không có where thì vẫn chạy bình thường mà không cần required , chưa giải thích được , tạm bỏ qua để làm tiếp ( vì khi cho where vào sequelize sẽ thiết lập lại required auto = false, khả năng chưa chính xác)
+ - tại sao separate và attribute không thể xuất hiện cùng nhau trong include
+ - tại sao required và separate kết hợp với nhau trong required thì required bị vô hiệu hóa
+ -.col chủ yếu dùng để tính các hàm SUM , còn atr thì dùng để select 
+ - cách sequelize hoạt động y như a Vinh nói , nó lọc ra từng thuộc tính của thằng cha , sau đó thằng con ( thằng bị include) sẽ bám theo id thằng cha cung cấp để truy vấn tiếp , nếu cha để attr = [] thì các con sẽ không có thông tin , nó đó trả về kết quả rỗng, chứ không phải attr  là cách thức hiển thị sau khi truy vấn trâu bò 1 lô ( tất cả thuộc tính) , mà nó là cách thức các con của nó bám theo => nhanh , cần test lại vì đang cấn so với bức tranh sql=>có vẻ đúng vì nếu ClassSubject để atr = []thì k lấy đc name của class và subject
+- A inclue B thì atrivute của B đc auto thêm khóa chính của B vào , do đó có thể ảnh hưởng tới việc group by , khử bằng cách cho atrtribute của B = []
+- cần xem xét lại bức tranh sequelize , thực sự vẫn chưa hiểu hết , cách trước đây nghĩ nó hoạt động và cách nó chuyển sang code SQL 
+- code mẫu 
+const data = await UserModel.findAll({
+                attributes: ['userId', [sequelize.fn('COUNT', 'phoneNumberId'), 'count']],
+                include: [{
+                    model: PhoneNumberModel,
+                    attributes: [],
+                    required: false
+                }],
+                group: 'userId',
+
+            });
+- raw = true và raw = false ? 
+
+
+
+-const data = await UserModel.findAll({
+                attributes: ['PhoneNumbers.name',],// user k có phonenumbers.name nhưng vẫn select ra , đây là hành động gán nhãn , atr = gán nhãn
+                include: {
+                    model: PhoneNumberModel,
+                    required: false, 
+                }
+            });
+            ==
+SELECT `Users`.`userId`,
+ `PhoneNumbers`.`name`,
+  `PhoneNumbers`.`phoneNumberId` AS `PhoneNumbers.phoneNumberId`,
+ `PhoneNumbers`.`userId` AS `PhoneNumbers.userId`,
+  `PhoneNumbers`.`name` AS `PhoneNumbers.name`, 
+  `PhoneNumbers`.`createdAt` AS `PhoneNumbers.createdAt`, 
+  `PhoneNumbers`.`updatedAt` AS `PhoneNumbers.updatedAt`, 
+  `PhoneNumbers`.`deletedAt` AS `PhoneNumbers.deletedAt` 
+  FROM `Users` AS `Users` 
+  LEFT OUTER JOIN `PhoneNumbers` AS `PhoneNumbers` 
+  ON `Users`.`userId` = `PhoneNumbers`.`userId` AND (`PhoneNumbers`.`deletedAt` IS NULL) 
+  WHERE (`Users`.`deletedAt` IS NULL);
+ =>> gây trùng lặp
+ - lạ lùng , userId luôn được select như ô thần trên stackOverFlow nói ( ô ấy nói cho atr = [] là mất nhưng con mất chứ cha éo mất đc)
+ - atr là tạo bảng nên viết string thuần là nó tự gán nhãn user phía trước , còn col dùng cho các loại group by
+ ---
+ code này  : 
+ async function getAssessments(userId) {
+    try {
+        const f = async () => {
+            const data = await FriendClassSubjectModel.findAll({
+                group: ['friendClassSubjectId', 'deletedAt', 'Friend.User.userName', 'Friend.friendId', 'ClassSubject.Subject.name', 'ClassSubject.Class.name', 'ClassSubject.classSubjectId'],
+                order: [['allStar', 'DESC']],
+                attributes: ['friendClassSubjectId', 'deletedAt', [sequelize.fn('SUM', sequelize.col('Assessments.star')), 'allStar']],
+                required: true,
+                paranoid: false,
+                include: [
+                    {
+                        model: FriendModel,
+                        attributes: ['friendId'],
+                        required: true,
+                        paranoid: false,
+                        include: {
+                            model: UserModel,
+                            attributes: ['userName', 'linkAvatar'],
+                            required: true,
+                            paranoid: false,
+                        }
+                    },
+                    {
+                        model: ClassSubjectModel,
+                        attributes: ['classSubjectId'],
+                        required: true,
+                        paranoid: false,
+                        include: [
+                            {
+                                model: ClassModel,
+                                attributes: ['name'],
+                                required: true,
+                                paranoid: false,
+                            },
+                            {
+                                model: SubjectModel,
+                                attributes: ['name'],
+                                required: true,
+                                paranoid: false,
+                            }
+                        ]
+                    },
+                    {
+                        model: AssessmentModel,
+                        attributes: [],
+                        required: false,
+                        paranoid: false,
+                    }
+                ]
+            });
+            const assessments = [];
+            data.forEach((value) => {
+                assessments.push({
+                    friendClassSubjectId: value.dataValues.friendClassSubjectId,
+                    assesser: value.dataValues.Friend.User.userName,
+                    linkAvatar  : value.dataValues.Friend.User.linkAvatar,
+                    class: value.dataValues.ClassSubject.Class.name,
+                    subject: value.dataValues.ClassSubject.Subject.name,
+                    allStar: value.dataValues.allStar || 0,
+                    status: value.dataValues.deletedAt || true,
+                });
+            });
+            // assessments.forEach((value) => {
+            //     console.log('>>> ' + JSON.stringify(value , null ,2))
+            // });
+            return assessments;
+        }
+        return await f();
+    } catch (error) {
+        console.log(error)
+        return null;
+    }
+} tại sao vẫn lấy được linkAvatar trong khi không group by ? 
+- co khi nao hanh dong tu dong them cau lenh select id cua thang duoc iclude la do unique khi tao khoa chinh ? 
+- order by nếu có quan hệ thì phải truyền vào nếu không sẽ không chạy             
+order : [[{model : ArticleModel , as : 'sideA'},'createdAt' , 'DESC']] , 

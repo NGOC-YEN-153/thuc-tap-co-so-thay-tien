@@ -1,0 +1,16 @@
+.NavBarr{
+    background-color: rgba(6, 147, 227, 1);
+    height: 51px ;
+    position: sticky;
+    right: 0px;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+.contact{
+    position: absolute;
+    transform: scale(1.6);
+    color: white;
+    left: 85vw;
+    top: 0.9vw;
+}

@@ -1,0 +1,109 @@
+.connect {
+    border: 1px solid #cccccc;
+}
+
+.body-connect {
+    margin-top: 100px;
+}
+
+.sw {
+    width: 200px;
+    font-size: 20px;
+    position: relative;
+    left: 29%;
+    top: 1.2vw;
+    margin-bottom: 60px;
+    margin-bottom: 60px;
+    border-radius: 10px;
+}
+
+.add-connect {
+    position: relative;
+    left: 26vw;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #cccccc;
+    width: 700px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+
+.add-connect div {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    left: 9%;
+}
+
+.posti {
+    position: relative !important;
+    top: 50px !important;
+    border-radius: 10px;
+}
+
+.add-connect div input {
+    margin-left: 30px;
+    border-radius: 10px;
+}
+
+.small-avatarr {
+    width: 48px;
+    height: 48px;
+    max-width: 48px;
+    border-radius: 999px;
+    font-family: "Roboto", sans-serif;
+
+}
+
+.delete-connect {
+    border: 1px solid #cccccc;
+    width: 700px;
+    position: relative;
+    left: 26vw;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.del {
+    position: relative;
+    left: 15vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.del-table {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.d1 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    left: 5vw;
+}
+
+.d2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: relative;
+    left: 5vw;
+
+}
+
+.sear {
+    position: relative;
+    width: 130px !important;
+    left: 17vw;
+    border-radius: 10px;
+    margin-bottom: 40px;
+
+}
+
+.delete-connect div input {
+    margin-left: 30px;
+    border-radius: 10px;
+}

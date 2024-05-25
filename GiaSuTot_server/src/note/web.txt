@@ -1,0 +1,4 @@
+cor() cho phép tất cả domain chọc tới api để lấy data nhưng request gửi tới k được đính kèm cookies
+cor(credentials : true , origin : 'http') chỉ định cho phép trình duyệt từ nguồn 'http...' chọc tới và kéo api đồng thời cho phép đính kèm cookies
+bên frontend phải cấu hình thêm  client.defaults.withCredentials = true;
+=>> kết hợp cả 2 phía

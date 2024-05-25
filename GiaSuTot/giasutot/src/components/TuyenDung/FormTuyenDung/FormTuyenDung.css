@@ -1,0 +1,280 @@
+*{
+    font-family: Arial, sans-serif;
+}
+label{
+    font-size: 20px;
+    font-weight: 400;
+}
+.form-td{
+    width: 700px;
+    height: 2500px;
+    border: #cccccc solid 2px;
+    border-radius:  10px;
+    position: relative;
+    left: 410px;
+    position: relative;
+    margin-top: 50px;
+}
+input{
+    border: #cccccc solid 1px;
+    height: 35px;
+    padding-left: 15px;
+}
+.ele2{
+    width: 400px;
+    position: absolute;
+    top: 330px;
+    left: 20px;
+}
+.ele1{
+    position: absolute;
+    top: 280px;
+    left: 20px;
+    font-weight: 500;
+}
+.avt{
+    transform: scale(0.4);
+    position: absolute;
+    left: 60px;
+    top: -110px;
+}
+.ele3{
+    position: absolute;
+    top: 380px;
+    left: 20px;
+    font-weight: 500;
+    
+}
+.ele33{
+    width: 400px;
+    position: absolute;
+    top: 430px;
+    left: 20px;
+    
+}
+.ele4{
+    position: absolute;
+    top: 480px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele5{
+    width: 600px;
+    position: absolute;
+    top: 520px;
+    left: 20px;
+}
+.ele6{
+    position: absolute;
+    top: 520px;
+    left: 90px;
+    transform: scale(1.4);
+}
+.ele7{
+    width: 600px;
+    position: absolute;
+    top: 560px;
+    left: 20px;
+    
+}
+.ele8{
+    position: absolute;
+    top: 560px;
+    left: 90px;
+    transform: scale(1.4);
+}
+.ele9{
+    position: absolute;
+    top: 610px;
+    left: 20px;
+    font-weight: 500;
+    
+}
+.ele10{
+    width: 450px;
+    position: absolute;
+    top: 660px;
+    left: 20px;
+}
+.ele11{
+    position: absolute;
+    top: 720px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele12{
+    width: 450px;
+    position: absolute;
+    top: 765px;
+    left: 20px;
+}
+.ele13{
+    position: absolute;
+    top: 820px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele14{
+    width: 450px;
+    position: absolute;
+    top: 865px;
+    left: 20px;
+}
+.ele15{
+    position: absolute;
+    top: 920px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele16{
+    width: 450px;
+    position: absolute;
+    top: 965px;
+    left: 20px;
+}
+.ele17{
+    position: absolute;
+    top: 1020px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele18{
+    width: 450px;
+    position: absolute;
+    top: 1065px;
+    left: 20px;
+}
+.ele19{
+    position: absolute;
+    top: 1120px;
+    left: 250px;
+    font-weight: 500;
+    font-size: 20px;
+}
+.ele20{
+    position: absolute;
+    top: 1170px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele21{
+    width: 450px;
+    position: absolute;
+    top: 1220px;
+    left: 20px;
+}
+.ele22{
+    position: absolute;
+    top: 1285px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele23{
+    width: 450px;
+    position: absolute;
+    top: 1335px;
+    left: 20px;
+}
+.ele24{
+    position: absolute;
+    top: 1550px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele25{
+    width: 470px;
+    position: absolute;
+    top: 1600px;
+    left: 20px;
+    height: 50px;
+}
+.ele26{
+    position: absolute;
+    top: 1690px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele27{
+    position: absolute;
+    top: 2200px;
+    left: 20px;
+    font-weight: 500;
+}
+.ele28{
+    width: 650px;
+    position: absolute;
+    top: 2250px;
+    left: 20px;
+}
+.ele29{
+    position: absolute;
+    top: 2385px;
+    left: 240px;
+    font-weight: 500;
+    border: #cccccc 2px solid;
+    border-radius: 8px;
+    width: 250px;
+    height: 50px;
+    background-color: #0693e3;
+    color: white;
+    font-size: 25px;
+}
+.ele30{
+    width: 650px;
+    position: absolute;
+    top: 2300px;
+    left: 20px;
+}
+.file{
+    width: 650px;
+    position: absolute;
+    top: 2300px;
+    left: 250px;
+    width: 250px;
+    border: white ;
+    height: 30px;
+}
+.thoigianranh{
+    position: absolute;
+    top: 1750px;
+    left: 20px;
+    width: 650px;
+    border: 1px #cccccc solid;
+    height: 400px;
+}
+td{
+    border: #cccccc solid 1px;
+    padding-left: 5.5px;
+}
+.thoigianranh tr label{
+    font-size: 16px;
+}
+input[type = "checkbox"]:checked{
+    background-color: green;
+}
+th{
+    border: 1px #cccccc solid;
+}
+.labelmonhoc{
+    position: absolute;
+    top: 1400px;
+    left: 20px;
+    font-weight: 500;
+}
+.monhoc{
+    width: 470px;
+    position: absolute;
+    top: 1460px;
+    left: 20px;
+    height: 50px;
+}
+.position{
+    position: relative;
+    left: 20px;
+    bottom: -1050px;
+    width: 470px;
+    height: 50px;
+}
+select{
+    margin-left: 15px;
+}

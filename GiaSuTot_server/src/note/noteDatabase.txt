@@ -1,0 +1,289 @@
+const { Sequelize, DataTypes, Model, Op } = require('sequelize');
+const sequelize = new Sequelize('web2024', 'root', 'Yenmysql153@', {
+  // host: 'localhost',
+  dialect: 'mysql' // or 'sqlite' | 'postgres' | 'mssql', ...
+  // thêm các tùy chọn khác nếu cần thiết
+});
+sequelize.authenticate()
+  .then(() => console.log('Connection has been established successfully.'))
+  .catch(err => console.error('Unable to connect to the database:', err));
+const User = sequelize.define('Users', {
+  user_name: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    primaryKey: true
+  },
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  age: {
+    type: DataTypes.INTEGER,
+    allowNull: false
+  }
+}, {
+  freezeTableName: true,
+  timestamps: false,
+})
+////////////////////////////////////////////////////
+const f = async () => {
+  try {
+    const result = await sequelize.transaction(async (t) => {
+      await User.create({
+        user_name: 'user5',
+        password: 'password5',
+        age: 24
+      },
+        { transaction: t }
+      );
+      await User.create({
+        user_name: 'user2',
+        password: 'password2',
+        age: 21
+      },
+        { transaction: t }
+      );
+      // result trả về 1 promise transaction
+      console.log('success transaction')
+      return true;
+    })
+  } catch (error) {
+    console.error('fail transaction')
+    return false;
+  }
+}
+sequelize.sync()
+  .then(() => f())
+  .catch(() => console.log('fail sync'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// User.findAll({
+//   attributes: { exclude: ['createdAt', 'updatedAt'] }
+// })
+//   .then(user => {
+//     user.forEach(key => console.log(key['user_name']));
+//   })
+//   .catch(() => console.log('fail'));
+// const user = await User.create({}, { fields: ['id', 'name',] }) // chỉ định create = build + save , chỉ định chỉ lưu id và name , các thuộc tính khác giữ lại ở object , chưa cập nhật db , save (1 vài fields) = update , nếu trạng thái cũ và mới giống hệt nhau , save đơn giản trả về 1 promise và không làm gì
+
+// Foo.hasOne(Bar, {
+//   onDelete: 'RESTRICT', // không được xóa và sửa dữ liệu ở bảng Foo vì sẽ ảnh hưởng tới tham chiếu của bảng bar
+//   onUpdate: 'RESTRICT'
+// });
+// Bar.belongsTo(Foo);
+
+
+
+
+
+
+
+
+
+
+
+
+
+const { Sequelize, DataTypes, Model, Op } = require('sequelize');
+const sequelize = new Sequelize('web2024', 'root', 'Yenmysql153@', {
+    // host: 'localhost',
+    dialect: 'mysql' // or 'sqlite' | 'postgres' | 'mssql', ...
+    // thêm các tùy chọn khác nếu cần thiết
+});
+const A = sequelize.define('A', {
+    name: {
+        type: DataTypes.STRING,
+        primaryKey: true
+    },
+    age: DataTypes.INTEGER
+},
+    {
+        freezeTableName: true,
+    })
+const B = sequelize.define('B', {
+    dof: {
+        type: DataTypes.STRING,
+        primaryKey: true
+    },
+    hobby: DataTypes.INTEGER,
+},
+    {
+        freezeTableName: true,
+    })
+const C = sequelize.define('C', {
+    thoiGian: DataTypes.INTEGER,
+    id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true
+    },
+    AName: {
+        type: DataTypes.STRING,
+        references: {
+            model: A,
+            key: 'Name'
+        }
+    },
+    BDof: {
+        type: DataTypes.STRING,
+        references: {
+            model: B,
+            key: 'Dof'
+        }
+    }
+},
+    {
+        freezeTableName: true,
+
+    })
+A.belongsToMany(B, { through: C });
+B.belongsToMany(A, { through: C });
+sequelize.sync({ alter: true })
+    .then(() => {
+        A.create({
+            name: 'user1',
+            age: 24
+        })
+        B.create({
+            dof: '1',
+            hobby: 1
+        })
+        C.create({
+            thoiGian: 1,
+            AId: 'user1',
+            BId: '1',
+            id: '1'
+        })
+    })
+    .catch(err => console.log(err));
+ 
+
+
+
+
+
+
+
+    A {
+
+    }
+     B {
+       id
+    }
+    C = sequelize = {
+       AId
+        BId
+    }
+     A và B quan hệ N - N thì khi A include B thì trong kết quả có cả bảng trung gian
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     const { Sequelize, DataTypes } = require('sequelize');
+const sequelize = new Sequelize('web2024', 'root', 'Yenmysql153@', {
+    // host: 'localhost',
+    dialect: 'mysql' // or 'sqlite' | 'postgres' | 'mssql', ...
+    // thêm các tùy chọn khác nếu cần thiết
+});
+const A = sequelize.define('A', {
+    name: {
+        type: DataTypes.STRING,
+        primaryKey: true
+    },
+    age: DataTypes.INTEGER
+},
+    {
+        freezeTableName: true,
+        timestamps: false
+    })
+const B = sequelize.define('B', {
+    name: {
+        type: DataTypes.STRING,
+        primaryKey: true,
+        references: {// khai bao nhu the nay se 100% them 1 foreign key , ket hop voi hasMany trong sequal(auto tao foreign key) se tao ra 2 foreign key(thua), fix = cho 2 thang cung 1 ten
+            model: A,
+            key: 'name'
+        }
+    }
+},
+    {
+        freezeTableName: true,
+        timestamps: false
+    })
+A.hasMany(B, { foreignKey: 'name' });
+B.belongsTo(A, { foreignKey: 'name' });
+// set , get, addBả để quy hoạch khóa ngoại , cho các khóa ngoại cùng trỏ về 1 nơi để tí getBar cái là xong
+const f = async () => {
+    // const a  =  await A.create({name:'user7' , age : 14}) ;
+    // const b = await B.create({name:'user7'}) ;
+    // await a.addB(b)
+    // console.log(await A.countBs())
+    // const a =  await A.findByPk('user4');
+    // console.log(await a.getBs())
+    console.log(await sequelize.query('select * from a', { type: Sequelize.QueryTypes.SELECT }))
+}
+f()
+// sequelize.sync({ alter: true })
+//     .then(() => {
+//         A.create({
+//             name: 'user1',
+//             age: 24
+//         })
+//         B.create({
+//             name: 'user1'
+//         })
+//     })
+//     .catch(err => console.log(err));
+// cẩn thận const Class = sequelize.models.CLasses và truyền thẳng sequelize.models.CLasses  khi include =)) 
+ 
+
+ User.belongsToMany(Article, { as: 'SideA', through: EmotionArticle, foreignKey: 'articleId' }); // công dụng của đổi tên
+    Article.belongsToMany(User, { as: 'SideB', through: EmotionArticle, foreignKey: 'userId' });
+    // Article
+  query
+   const result = await User.findAll({
+        include: {
+            model: Article,
+            required: true,
+            as :'SideA'
+        }
+    });
+    console.log(JSON.stringify(result, null, 2));

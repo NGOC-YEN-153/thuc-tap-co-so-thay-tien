@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../GiaSuTot_server"
+		},
+		{
+			"path": "../../BTLAIBackend"
+		},
+		{
+			"path": "../../BTLAIFrontend"
+		}
+	],
+	"settings": {}
+}

@@ -1,0 +1,130 @@
+.form-input{
+    width: 450px;
+    height: 600px;
+    border: 1px #cccccc solid;
+    border-radius: 5px;
+    position: fixed;
+    left: 500px;
+    top: 90px;
+} 
+.login-title{
+    text-align: center;
+    font-weight: 500;
+    font-size: 35px;
+    position: relative;
+    top: 30px;
+}
+#username-label{
+    font-size: 14px;
+    position: relative;
+    left: 10% ;
+    top: 31px;
+    font-weight: bold;
+}
+#username-input{
+    width: 350px;
+    height: 50px;
+    position: relative;
+    left: -5%;
+    top: 75px;
+    border-radius: 6px;
+    border: 1px #cccccc solid;
+}
+#password-label{
+    font-size: 14px;
+    position: relative;
+    left: 9%;
+    top: 15%;
+    font-weight: bold;
+}
+#password-input{
+    border-radius: 6px;
+    border: 1px #cccccc solid;
+    width: 350px;
+    height: 50px;
+    position: relative;
+    right: 4%;
+    top: 25%;
+}
+#need-an-account{
+    position: relative;
+    left: 48%;
+    bottom: 9%;
+    font-size: 13px;
+}
+#sign-up{
+    position: relative;
+    bottom: 13%;
+    left: 73%;
+    font-size: 14px;
+}
+#login-button{
+    width: 350px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: #04aa6d;
+    border-radius: 30px;
+    position: relative;
+    left: 9%;
+    top: 29%;
+    text-align: center;
+    padding-top: 3%;
+}
+#or{
+    font-size: 12px;
+    position: relative;
+    top: 180px;
+    left: 210px;
+}
+#line1{
+    width: 150px;
+    border-bottom: 1px #cccccc solid;
+    position: relative;
+    top: 195px;
+    left: 45px;
+}
+#line2{
+    width: 150px;
+    border-bottom: 1px #cccccc solid;
+    position: relative;
+    top: 170px;
+    left: 240px;
+}
+.social{
+    width: 350px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    background-color: #1877f2;
+    border-radius: 30px;
+    position: relative;
+    left: 9%;
+    top: 34%;
+    text-align: center;
+    padding-top: 3%;
+}
+#forgot-password{
+    position: relative;
+    top: 38%;
+    left: 33%;
+    color: black;
+}
+#forgot-password:hover{
+    color: #04aa6d;
+}
+.X{
+    color: red;
+    transform: scale(1.5);
+    position: absolute;
+    bottom: 590px;
+    left: 470px;
+}
+.fail-login{
+    position: absolute;
+    top: 312px;
+    color: #d30000;
+    left: 110px;
+}

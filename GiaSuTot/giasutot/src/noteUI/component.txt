@@ -1,0 +1,10 @@
+khai báo component nên là khai báo luôn kiểu như 
+return (
+        <img onClick={handle} className="avatar-profile" src={avatar} alt='avatar'></img>
+    ); 
+ chứ không nên 
+ if(!state.isActiveProfile)return <></>;
+ return (
+        <img onClick={handle} className="avatar-profile" src={avatar} alt='avatar'></img>
+    );
+vì cách số 2 vô tình sẽ return về rỗng , khi đó cha gọi component con sẽ gọi ra component rỗng , không chứa state nên khi state thay đổi nó không cập nhật

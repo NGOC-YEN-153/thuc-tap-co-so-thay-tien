@@ -1,0 +1,11 @@
+.logo{
+   width: 150px;
+   height: 50px;
+   position: absolute;
+   left: 22px;
+   text-decoration: none;
+   color: white;
+   font-weight: bolder;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 30px;
+}

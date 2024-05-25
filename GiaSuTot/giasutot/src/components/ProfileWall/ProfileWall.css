@@ -1,0 +1,8 @@
+.profile-wall{
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 250px;
+    margin-top: 50px;
+}

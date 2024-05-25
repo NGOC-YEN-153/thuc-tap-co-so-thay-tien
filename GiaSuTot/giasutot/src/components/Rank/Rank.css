@@ -1,0 +1,15 @@
+.small-avatarrr{
+    width: 28px;
+    height: 28px;
+    max-width: 28px;
+    border-radius: 999px;
+    font-family: "Roboto", sans-serif;
+}
+.com{
+    position: relative;
+    top: 9px;
+}
+.cx{
+    position: relative;
+    left: 7px;
+}

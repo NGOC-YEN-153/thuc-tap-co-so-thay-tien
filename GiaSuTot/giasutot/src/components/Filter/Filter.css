@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.filter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    font-family: "Roboto", sans-serif;
+
+}
+
+.title {
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+    font-family: "Roboto", sans-serif;
+
+}
+
+.mon {
+    position: relative;
+    right: -380px;
+    font-family: "Roboto", sans-serif;
+
+
+}
+
+.lop {
+    position: relative;
+    right: -300px;
+    font-family: "Roboto", sans-serif;
+}
+
+.thanh-pho {
+    position: relative;
+    right: -220px;
+    font-family: "Roboto", sans-serif;
+}
+
+.huyen {
+    position: relative;
+    right: -140px;
+    font-family: "Roboto", sans-serif;
+}
+
+.xa {
+    position: relative;
+    right: -60px;
+    font-family: "Roboto", sans-serif;
+}
+
+.gioi-tinh {
+    position: relative;
+    right: 20px;
+    font-family: "Roboto", sans-serif;
+}
+
+.thoi-gian {
+    position: relative;
+    right: 100px;
+    font-family: "Roboto", sans-serif;
+}
+
+.kinh-nghiem {
+    position: relative;
+    right: 180px;
+    font-family: "Roboto", sans-serif;
+}
+
+.dropdown-menu {
+    max-height: 200px;
+    /* Chiều cao tối đa của dropdown */
+    overflow-y: auto;
+    /* Tạo thanh cuộn khi nội dung vượt quá */
+    font-family: "Roboto", sans-serif;
+}
+
+.thoigianranh-filter {
+    display: fixed;
+    top: 100px;
+    left: 100px;
+    /* right: 100px; */
+    z-index: 1000;
+    font-family: "Roboto", sans-serif;
+}
+
+.thoi-gian-button {
+    color: #6c757d;
+    border: 1px solid #6c757d;
+    height: 31px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
+}
+
+#fa-caret-downn {
+    color: #6c757d;
+    transform: scale(0.7);
+    font-family: "Roboto", sans-serif;
+}
+
+.loc {
+    position: absolute;
+    left: 1350px;
+    font-family: "Roboto", sans-serif;
+}

@@ -1,0 +1,16 @@
+.sta {
+    width: 750px;
+    position: relative;
+    left: 27vw;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+.hea {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

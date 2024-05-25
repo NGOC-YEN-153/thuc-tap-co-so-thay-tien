@@ -1,0 +1,72 @@
+.thoi-gian-ranh {
+    position: fixed;
+    top: 130px;
+    left: 450px;
+}
+
+.thoi-gian-ranh-modal {
+    width: 650px;
+    border: 1px #cccccc solid;
+    height: 400px;
+}
+
+td {
+    border: #cccccc solid 1px;
+    padding-left: 5.5px;
+}
+
+.thoi-gian-ranh-modal tr label {
+    font-size: 16px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: green;
+}
+
+th {
+    border: 1px #cccccc solid;
+}
+
+.completed {
+    position: relative;
+    left: 270px;
+    top: 30px;
+    background-color: #d9eee1;
+    border-radius: 5px;
+}
+
+.clearAll {
+    position: relative;
+    left: -70px;
+    top: 30px;
+    background-color: #d9eee1;
+    border-radius: 5px;
+}
+
+.selectAll {
+    position: relative;
+    left: 299px;
+    top: 30px;
+    background-color: #d9eee1;
+    border-radius: 5px;
+}
+
+.x {
+    color: red;
+    transform: scale(1.5);
+    position: absolute;
+    bottom: 430px;
+    left: 664px;
+}
+
+.select-time-title {
+    position: relative;
+    bottom: 25px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.a404 {
+    z-index: 1000;
+}

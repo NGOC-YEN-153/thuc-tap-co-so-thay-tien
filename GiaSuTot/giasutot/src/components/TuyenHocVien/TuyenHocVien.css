@@ -1,0 +1,75 @@
+.tuyen-hoc-vien {
+    border: 1px solid #cccccc;
+    width: 700px;
+    height: 900px;
+    position: relative;
+    left: 500px;
+    top: 40px;
+}
+
+.boot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.text-infoo {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.exp-fill {
+    width: 170px;
+    position: relative;
+    left: 240px;
+    bottom: -35px;
+}
+
+.pricee {
+    width: 170px;
+    position: relative;
+    left: 240px;
+    bottom: -30px;
+}
+
+.lb {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.exppp {
+    position: relative;
+    top: 75px;
+    left: 120px;
+}
+
+.price {
+    position: relative;
+    left: 120px;
+    top: 65px;
+}
+
+.hourr {
+    position: relative;
+    left: 120px;
+    top: 65px;
+}
+
+.thoi-giann {
+    position: relative;
+    top: 120px;
+    left: 50px;
+}
+
+.nop {
+    position: relative;
+    top: 180px;
+    left: 290px;
+}
+
+.ra {
+    position: relative;
+    top: 100px;
+    left: 120px;
+}
